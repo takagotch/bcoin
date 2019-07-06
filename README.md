@@ -39,7 +39,26 @@ npm install
 ./bin/bcoin
 ```
 
-```
+```js
+const {NodeClient, WalletClient} = require('bclient');
+const {Network} = require('bcoin');
+const network = Network.get('regtest');
+
+const clientOptions = {
+  network: network.type,
+  port: network.rpcPort,
+  apiKey: 'api-key'
+}
+
+const walletOptions = {
+  network: network.type,
+  port: network.walletPort,
+  apiKey: 'api-key'
+}
+
+const client = new NodeClient(clientOptions);
+const wallet = new WalletClient(walletOptions);
+
 ```
 
 
